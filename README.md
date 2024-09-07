@@ -31,9 +31,9 @@ Ejecuta el deploy en github pages
 ---
 
 
->  ***Configuración de archivo variables.ts*** 
-  >
-    > Se agrego un archivo variables.ts en el cual se debe agregar la ruta del deploy para que la misma pueda ser tomada en la configuracion de vite.config.ts con el nombre de ***urlDeploy***
+### ***Configuración de archivo variables.ts*** 
+
+> Se agrego un archivo variables.ts en el cual se debe agregar la ruta del deploy para que la misma pueda ser tomada en la configuracion de vite.config.ts con el nombre de ***urlDeploy***
 
 > Debe crear el archivo .env como el template asignando la ruta o endpoint que tenga configurado en su backend, la ruta del repositorio para subirlo a github pages.
 

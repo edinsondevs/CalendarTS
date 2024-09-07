@@ -1,0 +1,1 @@
+export const urlDeploy = "https://ruta_de_github_pages.github.io/repositorio/";
