@@ -1,30 +1,35 @@
-# React + TypeScript + Vite
+# Aplicación de Calendario hecho en React, TypeScript y conectado al backend con MongoDB
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Esta es una aplicación realizada gracias al curso de React de Fernando Herrera.
 
-Currently, two official plugins are available:
+En él se trabajo con Vite para la creacion del proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Librerías que se usaron:
 
-## Expanding the ESLint configuration
+  * Material-UI
+  * Axios
+  * Sweetalert2
+  * Primereact
+  * Redux-Toolkit
+  * Date-fns
+  * gh-pages
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Para levantar la aplicación
 
-- Configure the top-level `parserOptions` property like this:
+Debe clonar el repositorio y ejecutar los siguientes codigos
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### `yarn`
+instalara todas las dependencias necesarias y configuradas en el proyecto.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### `yarn dev`
+Ejecuta el proyecto en modo de desarrollo de forma local
+
+
+### `yarn deploy`
+Ejecuta el deploy en github pages
+
+
+
+Debe crear el archivo .env como el template asignando la ruta o endpoint que tenga configurado en su backend, la ruta del repositorio para subirlo a github pages
+
+
