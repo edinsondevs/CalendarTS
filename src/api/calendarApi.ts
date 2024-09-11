@@ -1,10 +1,13 @@
 import axios from "axios";
 import { getEnvVariables } from "../helpers";
 
-const { VITE_API_URL, DEV, VITE_API_URL_PRD } = getEnvVariables();
+const { VITE_API_URL, VITE_MODE_DEV, VITE_API_URL_PRD } = getEnvVariables();
 
+// const calendarApi = axios.create({
+//     baseURL: DEV ? VITE_API_URL : VITE_API_URL_PRD
+// });
 const calendarApi = axios.create({
-	baseURL: DEV ? VITE_API_URL : VITE_API_URL_PRD,
+	baseURL: VITE_MODE_DEV ? VITE_API_URL : VITE_API_URL_PRD,
 });
 
 // todo: configurar interceptors

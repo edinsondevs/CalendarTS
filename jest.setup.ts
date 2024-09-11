@@ -1,3 +1,4 @@
+import "@testing-library/jest-dom"; 
 // En caso de necesitar la implementación del FetchAPI
 // yarn add -D whatwg-fetch
 // import 'whatwg-fetch';
@@ -8,11 +9,11 @@
 
 // En caso de tener variables de entorno y aún no soporta el import.meta.env
 // yarn add -D dotenv
-require('dotenv').config({
-    path: '.env.test'
+require("dotenv").config({
+	path: ".env.test",
 });
 
 // Realizar el mock completo de las variables de entorno
-jest.mock('./src/helpers/getEnvVariables.ts', () => ({
-    getEnvVariables: () => ({ ...process.env })
+jest.mock("./src/helpers/getEnvVariables.ts", () => ({
+	getEnvVariables: () => ({ ...process.env }),
 }));
