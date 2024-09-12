@@ -28,6 +28,9 @@ Ejecuta el proyecto en modo de desarrollo de forma local
 ### `yarn deploy`
 Ejecuta el deploy en github pages
 
+### `yarn test`
+Ejecuta los test del proyecto
+
 ---
 
 
