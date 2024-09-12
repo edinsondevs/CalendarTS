@@ -11,3 +11,10 @@ export interface AuthState {
 export interface StateInterface {
 	auth: AuthState;
 }
+
+export interface userCredentialsInterface {
+	correo: string;
+	contrasena: string;
+	uid: string;
+	nombre: string;
+}
