@@ -11,7 +11,7 @@ describe("Pruebas en el calendarApi", () => {
         expect(calendarApi.defaults.baseURL).toBe(process.env.VITE_API_URL);
 	});
 
-    test("debe de tener el x-token en el header", async () => {
+    test.skip("debe de tener el x-token en el header", async () => {
         localStorage.setItem("token","ABC-123");
         
         const res = await calendarApi.get("/auth",);

@@ -50,7 +50,7 @@ export interface EventInterface {
 	notes: string;
 	start: any;
 	end: any;
-	user: User;
+	user?: User;
 }
 
 export interface CalendarSliceInterface {
@@ -59,7 +59,7 @@ export interface CalendarSliceInterface {
 	start: string;
 	end: string;
 	id: string;
-	user: User;
+	user?: User;
 }
 
 export interface User {
