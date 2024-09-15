@@ -23,7 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 
-variables.ts
 .env
 .env.production
 .env.test
