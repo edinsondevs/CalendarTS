@@ -1,53 +1,57 @@
-import { Calendar, EventPropGetter } from 'react-big-calendar'
-import { defaultView, getMessagesES, localizer } from '../../helpers'
-import 'react-big-calendar/lib/css/react-big-calendar.css'
+import React from "react";
+import { Calendar, EventPropGetter } from "react-big-calendar";
+import { defaultView, getMessagesES, localizer } from "../../helpers";
+import "react-big-calendar/lib/css/react-big-calendar.css";
 
-import { CalendarEvent, FabAddDelete, Navbar } from "../index"
-import { Button } from 'primereact/button'
-import { CalendarModal } from '../components/CalendarModal'
+import { CalendarEvent, FabAddDelete, Navbar } from "../index";
+import { Button } from "primereact/button";
+import { CalendarModal } from "../components/CalendarModal";
 import { useCalendarStore, useUiStore, useLocalStorage } from "../../hooks";
-import { FabAddNew } from '../index'
-import { useEffect } from 'react'
+import { FabAddNew } from "../index";
+import { useEffect } from "react";
 
-const eventGetter: EventPropGetter<any> = (_event: string, _start: Date, _end: Date, isSelected: boolean,  ) => {
-  return {
-    style: {
-      backgroundColor: (isSelected) ? '#367CF7' : '#aa3344',
-      borderRadius: '5px',
-      opacity: 0.8,
-      color: 'white',
-    }
-  }
-}
-
+const eventGetter: EventPropGetter<any> = (
+	_event: string,
+	_start: Date,
+	_end: Date,
+	isSelected: boolean
+) => {
+	return {
+		style: {
+			backgroundColor: isSelected ? "#367CF7" : "#aa3344",
+			borderRadius: "5px",
+			opacity: 0.8,
+			color: "white",
+		},
+	};
+};
 
 export const CalendarPage = () => {
+	const { openDateModal } = useUiStore();
+	const { events, setActiveEvent, startLoadingEvent } = useCalendarStore();
+	const { getLocalStorage } = useLocalStorage("token");
+	const { setItemStorage } = useLocalStorage("defaultView");
 
-  const { openDateModal } = useUiStore();
-  const { events, setActiveEvent, startLoadingEvent } = useCalendarStore();
-  const { getLocalStorage } = useLocalStorage("token");
-  const { setItemStorage } = useLocalStorage("defaultView");
+	const onDoubleClick = () => {
+		openDateModal();
+	};
 
-  const onDoubleClick = () => {
-    openDateModal();
-  };
-  
-  const onSelect = (event: any) => {
-	setActiveEvent(event);
-  }
-  
-  const onViewChange = ( event: any) => {
-    setItemStorage(event);
-  }
+	const onSelect = (event: any) => {
+		setActiveEvent(event);
+	};
 
-//   const datos = 
-  const existToken = getLocalStorage() ? true : false;
+	const onViewChange = (event: any) => {
+		setItemStorage(event);
+	};
 
-  useEffect(() => {
+	//   const datos =
+	const existToken = getLocalStorage() ? true : false;
+
+	useEffect(() => {
 		existToken && startLoadingEvent();
-  }, [existToken]);
-  
-  return (
+	}, [existToken]);
+
+	return (
 		<>
 			<Navbar />
 			<Button
@@ -78,5 +82,5 @@ export const CalendarPage = () => {
 			{<FabAddNew />}
 			{<FabAddDelete />}
 		</>
-  );
-}
+	);
+};

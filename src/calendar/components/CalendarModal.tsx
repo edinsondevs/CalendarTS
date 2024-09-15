@@ -1,3 +1,4 @@
+import React from "react";
 // import { Dialog } from "primereact/dialog";
 import { CalendarComponent } from "./CalendarComponent";
 import Modal from "react-modal";
@@ -40,9 +41,7 @@ export const CalendarModal = () => {
 	const { isDateModalOpen, closeDateModal } = useUiStore();
 	const { activeEvent, startSaveEvent } = useCalendarStore();
 
-
 	const [formValues, setFormValues] = useState(initialFormValues);
-
 
 	const ContentFooter = () => {
 		return (
@@ -66,13 +65,15 @@ export const CalendarModal = () => {
 
 	useEffect(() => {
 		if (activeEvent !== null) {
-			setFormValues({...activeEvent});
+			setFormValues({ ...activeEvent });
 		}
 	}, [activeEvent]);
 
 	//******************************************************************* */
 	//*  FUNCION PARA CAMBIAR LOS VALORES DEL TITULO Y NOTAS
-	const onInputChange = ({ target }: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+	const onInputChange = ({
+		target,
+	}: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
 		setFormValues({
 			...formValues,
 			[target.name]: target.value,

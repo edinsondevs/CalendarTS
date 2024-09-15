@@ -1,10 +1,10 @@
+import React from "react";
 import { useAuthStore } from "../../hooks";
 
 export const Navbar = () => {
-    
-    const { startLogout, user } = useAuthStore();
-        
-    return (
+	const { startLogout, user } = useAuthStore();
+
+	return (
 		<div className='navbar navbar-dark bg-dark mb-4 px-4 text-white'>
 			<span className='navbar-brand h1 text-white'>
 				<i className='fas fa-calendar-alt '></i>
@@ -18,4 +18,4 @@ export const Navbar = () => {
 			</button>
 		</div>
 	);
-}
+};

@@ -1,5 +1,5 @@
 import { calendarSlice, onAddNewEvent, onDeleteEvent, onLoadEvents, onLogoutCalendar, onSetActiveEvent, onUpdateEvent } from "../../../src/store";
-import { calendarWithActiveEventsState, calendarWithEventsState, events, initialState, loadEventsState, onNewEvent, onUpdateEventState } from "../../__fixtures__/calendarState";
+import { calendarWithActiveEventsState, calendarWithEventsState, events, initialState, onNewEvent, onUpdateEventState } from "../../__fixtures__/calendarState";
 
 describe('Pruebas en el calendarSlice', () => {
     

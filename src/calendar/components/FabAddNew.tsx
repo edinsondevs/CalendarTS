@@ -1,11 +1,12 @@
+import React from "react";
 import { useCalendarStore, useUiStore } from "../../hooks";
 
 export const FabAddNew = () => {
-    const { setActiveEvent  } = useCalendarStore();
-    const { openDateModal } = useUiStore();
-    
-    const handleClick = (): void => {
-        setActiveEvent({
+	const { setActiveEvent } = useCalendarStore();
+	const { openDateModal } = useUiStore();
+
+	const handleClick = (): void => {
+		setActiveEvent({
 			title: "",
 			notes: "",
 			start: new Date(),
@@ -15,15 +16,14 @@ export const FabAddNew = () => {
 				name: "",
 			},
 		});
-        openDateModal();
-    }
+		openDateModal();
+	};
 
-  return (
+	return (
 		<button
-            className="btn btn-primary fab"
-            onClick={handleClick}
-        >
-            <i className="fa fa-plus"></i>
-        </button>
-  );
-}
+			className='btn btn-primary fab'
+			onClick={handleClick}>
+			<i className='fa fa-plus'></i>
+		</button>
+	);
+};
