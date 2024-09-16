@@ -3,6 +3,7 @@ export type HourFormat = '12' | '24';
 export interface labelCalendarInterface {
 	minDate?: Date;
 	showTime?: boolean;
+	title: string;
 	type?: string;
 	hourFormat?: "12" | "24"; // agregar esta propiedad con el tipo correcto
 	initialDate: Date; // nueva propiedad

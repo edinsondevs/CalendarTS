@@ -1,15 +1,14 @@
 import React from "react";
-// import { Dialog } from "primereact/dialog";
 import { CalendarComponent } from "./CalendarComponent";
 import Modal from "react-modal";
 
-// import { useForm } from "../../hooks/useForm";
 import { InputCalendar } from "../../utils/interfaces/calendarInterfaces";
 import { addHours, differenceInSeconds } from "date-fns";
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
 import { useCalendarStore, useUiStore } from "../../hooks";
 import { ChangeEvent, useEffect, useState } from "react";
+import useDisabledOption from "../../hooks/useDisabledOption";
 
 const customStyles = {
 	content: {
@@ -42,11 +41,23 @@ export const CalendarModal = () => {
 	const { activeEvent, startSaveEvent } = useCalendarStore();
 
 	const [formValues, setFormValues] = useState(initialFormValues);
+	const { state: isDisabled, changeOption } = useDisabledOption(true);
+	
+	useEffect(() => {
+		if (
+			formValues.notes.length > 0 &&
+			formValues.title.length > 0 &&
+			formValues.end
+		) {
+			changeOption(false);
+		} 
+	},[formValues])
 
 	const ContentFooter = () => {
 		return (
 			<button
 				type='submit'
+				disabled={isDisabled}
 				className='btn btn-outline-primary btn-block'>
 				<i className='far fa-save'></i>
 				<span> Guardar</span>
@@ -94,7 +105,7 @@ export const CalendarModal = () => {
 			return;
 		}
 		await startSaveEvent(formValues);
-
+		changeOption(true);
 		closeDateModal();
 	};
 
@@ -103,6 +114,7 @@ export const CalendarModal = () => {
 	const onCloseModal = () => {
 		if (!isDateModalOpen) return;
 		closeDateModal();
+		changeOption(true);
 	};
 
 	return (
@@ -112,31 +124,30 @@ export const CalendarModal = () => {
 			style={customStyles}
 			className='modal'
 			overlayClassName='modal-fondo'
-			closeTimeoutMS={200}>
-			<h1>Nuevo Evento</h1>
-			<hr />
+			closeTimeoutMS={200}
+			>
+			<div className="d-flex p-2 justify-content-between align-items-center">
+				<h1>Nuevo Evento</h1>
+				<i className='pi pi-times' style={{ fontSize: "1.5rem", position:'fixed', right:'5%'  , cursor: "pointer" }} onClick={onCloseModal}></i>
+				<hr />
+			</div>
 			<form
 				className='container'
 				onSubmit={onSubmit}>
 				<div className='form-group mb-2'>
-					<label>Fecha y hora inicio</label>
-					<br />
 					<CalendarComponent
 						initialDate={formValues.start}
 						onChange={(event) => onDateChange(event, "start")}
 						showTime={true}
-						hourFormat='24'
+						title='Fecha y hora inicio'
 					/>
 				</div>
 				<div className='form-group mb-2'>
-					<label>Fecha y hora fin</label>
-					<br />
 					<CalendarComponent
 						initialDate={formValues.end}
 						onChange={(event) => onDateChange(event, "end")}
 						minDate={formValues.start}
-						showTime={true}
-						hourFormat='24'
+						title='Fecha y hora fin'
 					/>
 				</div>
 				<hr />

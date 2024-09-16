@@ -1,15 +1,14 @@
-import React from "react";
 import { Calendar } from "primereact/calendar";
 import { labelCalendarInterface } from "../../utils/interfaces/calendarInterfaces";
 import { addLocale } from "primereact/api";
+import React from "react";
 
 export const CalendarComponent = (props: labelCalendarInterface) => {
 	const {
 		minDate,
-		showTime = false,
 		type = "start",
-		hourFormat,
 		initialDate,
+		title,
 		onChange, // propiedad para emitir la fecha seleccionada
 	} = props;
 
@@ -54,26 +53,33 @@ export const CalendarComponent = (props: labelCalendarInterface) => {
 			"nov",
 			"dic",
 		],
-		today: "Hoy",
+		now: "Hoy",
 		clear: "Limpiar",
 	});
 
 	const onselectionchange = (e: any) => {
-		onChange(e.target.value);
+		onChange(e.value);
 	};
-
+	
 	return (
-		<Calendar
-			value={initialDate}
-			name={type}
-			dateFormat='dd/mm/yy'
-			locale='es'
-			onChange={onselectionchange}
-			showIcon
-			showButtonBar
-			showTime={showTime}
-			hourFormat={hourFormat}
-			minDate={minDate}
-		/>
+		<div className='flex-auto'>
+			<label
+				htmlFor='buttondisplay'
+				className='font-bold block mb-2'>
+				{title}
+			</label>
+			<Calendar
+				showButtonBar
+				locale='es'
+				value={initialDate}
+				name={type}
+				id='buttondisplay'
+				onChange={onselectionchange}
+				showIcon
+				showTime
+				minDate={minDate}
+				dateFormat='dd/mm/yy'
+			/>
+		</div>
 	);
 };

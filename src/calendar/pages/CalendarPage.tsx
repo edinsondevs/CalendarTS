@@ -34,6 +34,7 @@ export const CalendarPage = () => {
 
 	const onDoubleClick = () => {
 		openDateModal();
+
 	};
 
 	const onSelect = (event: any) => {
