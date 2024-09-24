@@ -1,4 +1,4 @@
-import React from "react";
+
 import { CalendarComponent } from "./CalendarComponent";
 import Modal from "react-modal";
 
@@ -20,7 +20,6 @@ const customStyles = {
 		transform: "translate(-50%, -50%)",
 	},
 };
-Modal.setAppElement("#root");
 
 interface initialFormValuesInterface {
 	title: string;
@@ -52,6 +51,11 @@ export const CalendarModal = () => {
 			changeOption(false);
 		} 
 	},[formValues])
+
+	useEffect(() => {
+	  Modal.setAppElement("#root");
+	}, []);
+	
 
 	const ContentFooter = () => {
 		return (

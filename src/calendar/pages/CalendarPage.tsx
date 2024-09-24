@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Calendar, EventPropGetter } from "react-big-calendar";
 import { defaultView, getMessagesES, localizer } from "../../helpers";
 import "react-big-calendar/lib/css/react-big-calendar.css";

@@ -1,7 +1,6 @@
 import { Calendar } from "primereact/calendar";
 import { labelCalendarInterface } from "../../utils/interfaces/calendarInterfaces";
 import { addLocale } from "primereact/api";
-import React from "react";
 
 export const CalendarComponent = (props: labelCalendarInterface) => {
 	const {

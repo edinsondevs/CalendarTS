@@ -1,4 +1,3 @@
-import React from "react";
 
 export const CalendarEvent = ({ event }: any) => {
 	// console.log(event);
